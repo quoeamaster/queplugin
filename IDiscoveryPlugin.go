@@ -23,8 +23,8 @@ type DiscoveryPlugin interface {
     // method to ping for the given url / broker
     Ping (url string, options map[string]interface{}) (valid bool, returnValues map[string]interface{}, err error)
 
-    // perform a master broker election; return the master's broker id
-    ElectMaster (params map[string]interface{}) (brokerId string, err error)
+    // perform a master broker election; return the master's broker id, extra params and any error
+    ElectMaster (params map[string]interface{}) (brokerId string, returnValues map[string]interface{}, err error)
 }
 
 
