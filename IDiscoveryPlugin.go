@@ -20,11 +20,11 @@ package queplugin
 // => New{PLUGIN_NAME} e.g. NewSimpleDiscoveryPlugin()
 
 type DiscoveryPlugin interface {
-    // method to ping for the given url / broker
-    Ping (url string, options map[string]interface{}) (valid bool, returnValues map[string]interface{}, err error)
+    // method to ping for the given payload information (the payload could be a json document)
+    Ping (payload string, options map[string]interface{}) (valid bool, jsonResponse string, returnValues map[string]interface{}, err error)
 
     // perform a master broker election; return the master's broker id, extra params and any error
-    ElectMaster (params map[string]interface{}) (brokerId string, returnValues map[string]interface{}, err error)
+    ElectMaster (payload string, params map[string]interface{}) (brokerId string, jsonResponse string, returnValues map[string]interface{}, err error)
 }
 
 
